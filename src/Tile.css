@@ -2,7 +2,28 @@
   height: 48px;
   width: 48px;
   background-color: transparent;
+  color: white;
   border-width: 2px;
   border-color: rgb(58, 58, 60);
   border-style: solid;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 24px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  box-sizing: border-box;
+}
+.correct{
+  border: none;
+  background-color: rgb(83, 141, 78);
+}
+.present{
+  border: none;
+  background-color: rgb(181, 159, 59);
+}
+.absent{
+  border: none;
+  background-color: rgb(58, 58, 60);
 }
