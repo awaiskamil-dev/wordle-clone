@@ -55,7 +55,10 @@ function App() {
         setCurrentGuess(prevGuess => prevGuess.slice(0, -1));
       }
       if(event.key === 'Enter' && currentGuess.length === 5){
-        setGuesses(prevGuesses => [...prevGuesses, checkGuess(currentGuess, answer)]);
+        setGuesses(prevGuesses => [...prevGuesses, {
+          word: currentGuess,
+          results: checkGuess(currentGuess, answer)
+        }]);
         setCurrentGuess('');
       }
     }
