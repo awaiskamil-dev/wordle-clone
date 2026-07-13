@@ -11,6 +11,7 @@ function App() {
   });
   const [guesses, setGuesses] = useState([]);
   const [currentGuess, setCurrentGuess] = useState(''); 
+  const [gameStatus, setGameStatus] = useState('playing');
 
   function checkGuess(guess, answer){
     const results = [];
@@ -46,6 +47,8 @@ function App() {
 
   useEffect(() => {
     function handleKeyPress(event){
+      if (gameStatus !== 'playing') return;
+
       const isLetter = /^[a-zA-Z]$/.test(event.key);
 
       if(isLetter && currentGuess.length < 5){
@@ -55,11 +58,22 @@ function App() {
         setCurrentGuess(prevGuess => prevGuess.slice(0, -1));
       }
       if(event.key === 'Enter' && currentGuess.length === 5){
+        const results = checkGuess(currentGuess, answer);
+
         setGuesses(prevGuesses => [...prevGuesses, {
           word: currentGuess,
-          results: checkGuess(currentGuess, answer)
+          results: results
         }]);
         setCurrentGuess('');
+
+        const isWin = results.every(status => status === 'correct');
+
+        if(isWin){
+          setGameStatus('won');
+        }
+        else if(guesses.length + 1 === 6){
+          setGameStatus('lost');
+        }
       }
     }
     document.addEventListener('keydown', handleKeyPress);
@@ -67,10 +81,10 @@ function App() {
     return () => {
       document.removeEventListener('keydown', handleKeyPress);
     };
-  }, [currentGuess, answer]);
+  }, [currentGuess, answer, gameStatus, guesses]);
 
   return (
-    <Board guesses={guesses} currentGuess={currentGuess} />
+    <Board guesses={guesses} currentGuess={currentGuess} gameStatus={gameStatus} />
   );
 }
 

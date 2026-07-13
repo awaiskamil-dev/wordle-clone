@@ -1,9 +1,8 @@
 import { Row } from "./Row";
 import './Board.css'
 
-export function Board({guesses, currentGuess}){
-  const gameOver = guesses.length >= 6;
-  const emptyRows = gameOver? 6 - guesses.length : 6 -guesses.length - 1;
+export function Board({guesses, currentGuess, gameStatus}){
+  const emptyRows = gameStatus === 'playing' ?  6 - guesses.length - 1 : 6 - guesses.length;
 
   return (
     <div className="board">
@@ -12,7 +11,7 @@ export function Board({guesses, currentGuess}){
           <Row key={`guess-${index}`} guess={guess} />
         );
       })}
-      {!gameOver && <Row currentGuess={currentGuess} />}
+      {gameStatus === 'playing' && <Row currentGuess={currentGuess} />}
       {Array.from({length: emptyRows}).map((_, index) => {
         return(
           <Row key={`empty-${index}`} />
