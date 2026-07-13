@@ -1,0 +1,8 @@
+.tile{
+  height: 48px;
+  width: 48px;
+  background-color: transparent;
+  border-width: 2px;
+  border-color: rgb(58, 58, 60);
+  border-style: solid;
+}
