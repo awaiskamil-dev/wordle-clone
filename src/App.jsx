@@ -3,7 +3,33 @@ import './App.css'
 import { Board } from './Board';
 import { Keyboard } from './Keyboard';
 
-const words = ['pilot', 'arrow', 'bench', 'black', 'cover', 'daily', 'group', 'happy', 'fraud', 'hotel', 'ideal', 'eager', 'logic', 'ocean', 'paper', 'mount', 'light', 'peace', 'times', 'tower', 'steel', 'vital', 'stout', 'worth'];
+const words = [
+  'apple', 'arena', 'ashen', 'adopt',
+  'bacon', 'badge', 'baker', 'blitz',
+  'candy', 'cabin', 'chirp', 'crust',
+  'dance', 'dodge', 'drift', 'dwarf',
+  'eagle', 'earth', 'elbow', 'exact',
+  'fable', 'faint', 'feast', 'flock',
+  'ghost', 'glide', 'grape', 'groom',
+  'habit', 'hedge', 'hound', 'hyena',
+  'idiom', 'image', 'incur', 'ivory',
+  'jelly', 'joint', 'judge', 'jumbo',
+  'karma', 'kneel', 'knock', 'koala',
+  'lemon', 'liver', 'lodge', 'lucky',
+  'mango', 'medal', 'molly', 'mercy',
+  'naive', 'nerve', 'noble', 'nurse',
+  'oasis', 'olive', 'onset', 'oxide',
+  'panel', 'pearl', 'plaza', 'pouch',
+  'quack', 'quilt', 'quirk', 'quote',
+  'radio', 'reach', 'rider', 'rusty',
+  'salad', 'scale', 'skirt', 'swirl',
+  'table', 'thorn', 'tiger', 'trace',
+  'udder', 'uncle', 'upset', 'usher',
+  'valve', 'venom', 'vivid', 'vouch',
+  'wagon', 'whale', 'witch', 'wrist',
+  'yacht', 'yield', 'young', 'yeast',
+  'zebra', 'zesty', 'zonal', 'zippy',
+];
 
 function checkGuess(guess, answer){
   const results = [];
@@ -77,6 +103,16 @@ function App() {
     }
   }, [gameStatus, currentGuess, answer, guesses]);
 
+  function restartGame(){
+    setAnswer(() => {
+      const randomIndex = Math.floor(Math.random() * words.length);
+      return words[randomIndex];
+    })
+    setGameStatus('playing');
+    setGuesses([]);
+    setCurrentGuess('');
+  }
+
   useEffect(() => {
     function handleKeyDown(event){
       handleKey(event.key)
@@ -97,7 +133,7 @@ function App() {
           <p className='correct-answer'>
             The answer was: <span>{answer}</span>
           </p>
-          <button className='restart-button'>↺</button>
+          <button className='restart-button' onClick={restartGame}>↺</button>
         </>
       }
     </div>
