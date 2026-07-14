@@ -2,7 +2,7 @@
 
 A React clone of the popular word-guessing game Wordle, built as a one-day project to practice React fundamentals.
 
-🔗 **Live demo:** [https://wordle-clone-awais.netlify.app]
+🔗 **Live demo:** https://wordle-clone-awais.netlify.app
 
 ## Features
 
