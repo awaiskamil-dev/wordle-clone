@@ -75,6 +75,9 @@ function App() {
   const handleKey = useCallback((key) => {
     if (gameStatus !== 'playing') return;
 
+    if(key !== 'Enter' && key !== 'Backspace'){
+      key = key.toLowerCase();
+    }
     const isLetter = /^[a-zA-Z]$/.test(key);
 
     if(isLetter && currentGuess.length < 5){
