@@ -92,6 +92,14 @@ function App() {
     <div className='game-container'>
       <Board guesses={guesses} currentGuess={currentGuess} gameStatus={gameStatus} />
       {gameStatus === 'playing' && <Keyboard handleKey={handleKey} />}
+      {gameStatus !== 'playing' && 
+        <>
+          <p className='correct-answer'>
+            The answer was: <span>{answer}</span>
+          </p>
+          <button className='restart-button'>↺</button>
+        </>
+      }
     </div>
   );
 }

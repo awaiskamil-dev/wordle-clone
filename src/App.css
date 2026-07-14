@@ -4,3 +4,39 @@
   align-items: center;
   justify-content: center;
 }
+
+.correct-answer{
+  color: rgb(148, 148, 150);
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 20px;
+  text-align: center;
+  margin-top: 85px;
+}
+
+.correct-answer span{
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: rgb(83, 141, 78); /* same green as your 'correct' tiles */
+}
+
+.restart-button {
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  background-color: rgb(83, 141, 78);
+  color: white;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.restart-button:hover {
+  background-color: rgb(71, 122, 67);
+}
