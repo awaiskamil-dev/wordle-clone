@@ -1,18 +1,54 @@
-# React + Vite
+# Wordle Clone
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React clone of the popular word-guessing game Wordle, built as a one-day project to practice React fundamentals.
 
-Currently, two official plugins are available:
+🔗 **Live demo:** [https://wordle-clone-awais.netlify.app]
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Features
 
-## React Compiler
+- Guess a 5-letter word within 6 attempts
+- Color-coded feedback for each guess (correct letter/position, correct letter/wrong position, incorrect letter)
+- On-screen keyboard with live feedback tracking
+- Win/lose state handling
+- Restart button to reset and play again
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+## Tech Stack
 
-Note: This will impact Vite dev & build performances.
+- React
+- Vite
+- CSS
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Clone the repo and install dependencies:
+
+```bash
+git clone https://github.com/your-username/your-repo-name.git
+cd your-repo-name
+npm install
+```
+
+Run the dev server:
+
+```bash
+npm run dev
+```
+
+Build for production:
+
+```bash
+npm run build
+```
+
+## What I Practiced
+
+This project was built to get hands-on practice with:
+
+- React component structure and state management
+- Handling keyboard/click input events
+- Conditional rendering and dynamic styling based on game state
+- Array/string manipulation for word comparison logic
+
+## License
+
+MIT
