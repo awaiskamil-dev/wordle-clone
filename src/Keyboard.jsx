@@ -1,43 +1,43 @@
 import './Keyboard.css'
 
-export function Keyboard(){
+const row1 = ['Q','W','E','R','T','Y','U','I','O','P'];
+const row2 = ['A','S','D','F','G','H','J','K','L'];
+const row3 = ['Backspace','Z','X','C','V','B','N','M','Enter'];
+
+export function Keyboard({handleKey}){
+  function renderRow(row){
+    return row.map((key) => {
+      let className = 'key';
+      let content = key;
+
+      if (key === 'Enter' || key === 'Backspace') {
+        className = 'key key-wide';
+      }
+
+      if (key === 'Backspace') {
+        content = '⌫';
+      }
+
+      return (
+        <button key={key} className={className} onClick={() => handleKey(key)}>
+          {content}
+        </button>
+      );
+    });
+  }
+
   return (
     <div className="keyboard">
       <div className="keyboard-row">
-        <div className="key">Q</div>
-        <div className="key">W</div>
-        <div className="key">E</div>
-        <div className="key">R</div>
-        <div className="key">T</div>
-        <div className="key">Y</div>
-        <div className="key">U</div>
-        <div className="key">I</div>
-        <div className="key">O</div>
-        <div className="key">P</div>
+       {renderRow(row1)}
       </div>
 
       <div className="keyboard-row">
-        <div className="key">A</div>
-        <div className="key">S</div>
-        <div className="key">D</div>
-        <div className="key">F</div>
-        <div className="key">G</div>
-        <div className="key">H</div>
-        <div className="key">J</div>
-        <div className="key">K</div>
-        <div className="key">L</div>
+        {renderRow(row2)}
       </div>
 
       <div className="keyboard-row">
-        <div className="key key-wide">⌫</div>
-        <div className="key">Z</div>
-        <div className="key">X</div>
-        <div className="key">C</div>
-        <div className="key">V</div>
-        <div className="key">B</div>
-        <div className="key">N</div>
-        <div className="key">M</div>
-        <div className="key key-wide">Enter</div>
+        {renderRow(row3)}
       </div>
     </div>
   );
