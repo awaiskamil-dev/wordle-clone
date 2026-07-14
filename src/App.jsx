@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import './App.css'
 import { Board } from './Board';
+import { Keyboard } from './Keyboard';
 
 const words = ['pilot', 'arrow', 'bench', 'black', 'cover', 'daily', 'group', 'happy', 'fraud', 'hotel', 'ideal', 'eager', 'logic', 'ocean', 'paper', 'mount', 'light', 'peace', 'times', 'tower', 'steel', 'vital', 'stout', 'worth'];
 
@@ -84,7 +85,10 @@ function App() {
   }, [currentGuess, answer, gameStatus, guesses]);
 
   return (
-    <Board guesses={guesses} currentGuess={currentGuess} gameStatus={gameStatus} />
+    <div className='game-container'>
+      <Board guesses={guesses} currentGuess={currentGuess} gameStatus={gameStatus} />
+      <Keyboard />
+    </div>
   );
 }
 
